@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letter from your husband</title>
+    <style>
+        /* --- Fonts --- */
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Quicksand:wght@400&display=swap');
+
+        /* --- Reset & Body Main Styling --- */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #fce4ec; /* Soft Pink Background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow: hidden; /* Prevents scrollbars during animation */
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        /* --- The Container holding everything --- */
+        .container {
+            position: relative;
+            width: 520px; /* increased envelope width */
+            height: 380px; /* increased envelope height */
+            cursor: pointer;
+        }
+
+        /* --- ENVELOPE STYLES --- */
+        .envelope-wrapper {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s ease-in-out;
+        }
+
+        .envelope-back {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #d6aba0; /* Darker envelope color */
+            border-radius: 0 0 5px 5px;
+        }
+
+        /* The triangle flap at the top that opens */
+        .envelope-flap {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 0;
+            border-left: 260px solid transparent; /* Half of container width (~520/2) */
+            border-right: 260px solid transparent;
+            border-top: 250px solid #eddcd9; /* Taller flap for larger envelope */
+            transform-origin: top;
+            transition: transform 0.4s 0.2s ease-out, z-index 0.2s 0.2s;
+            z-index: 5;
+        }
+
+        /* The "seal" heart */
+        .envelope-flap::after {
+            content: '❤';
+            position: absolute;
+            top: -80px; /* Adjust based on larger border-top height */
+            left: calc(50% - 36px);
+            font-size: 75px;
+            color: #c2185b;
+        }
+
+        /* The front triangles that make the pocket */
+        .envelope-front {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 0;
+            border-left: 260px solid transparent;
+            border-right: 260px solid transparent;
+            border-bottom: 250px solid #e6c8c3; /* Larger pocket */
+            z-index: 4;
+            border-radius: 0 0 6px 6px;
+        }
+
+        /* --- THE LETTER INSIDE --- */
+        .letter {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 88%;
+            height: 86%;
+            background: #fff;
+            border-radius: 6px;
+            padding: 28px;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+            transition: bottom 0.6s 0.4s ease-in-out, transform 0.5s ease, z-index 0.1s 0.6s;
+            z-index: 3; /* Starts between back and front of envelope */
+            overflow: auto;
+            /* Initial state of letter content is hidden slightly */
+            opacity: 0; 
+        }
+
+        /* Letter Content Styling (from previous example) */
+        .letter h1 {
+            font-family: 'Dancing Script', cursive;
+            color: #c2185b;
+            text-align: center;
+            margin: 5px 0;
+            font-size: 24px;
+        }
+
+        .letter p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #4a4a4a;
+            margin-bottom: 10px;
+            text-indent: 2em;
+            text-align: justify;
+        }
+
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 20px;
+            color: #c2185b;
+            text-align: right;
+        }
+
+
+        /* --- ANIMATION STATES (When "open" class is added by JS) --- */
+        
+        /* 1. The Flap Opens up */
+        .container.open .envelope-flap {
+            transform: rotateX(180deg);
+            z-index: 1; /* Flap goes behind everything once open */
+            transition-delay: 0s;
+        }
+
+        /* 2. The Letter Slides Out & Appears */
+        .container.open .letter {
+            bottom: auto; /* use top positioning for larger envelope */
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10; /* Comes to the very front */
+            opacity: 1;
+            transition: transform 0.5s cubic-bezier(.2,.8,.2,1), opacity 0.3s 0.2s, z-index 0.1s 0.6s;
+        }
+
+        /* 3. The whole envelope moves down slightly to give space */
+        .container.open .envelope-wrapper {
+            transform: translateY(50px);
+            transition-delay: 0.4s;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="envelope-container">
+        
+        <div class="envelope-wrapper">
+            <div class="envelope-back"></div>
+            <div class="envelope-flap"></div>
+            <div class="envelope-front"></div>
+        </div>
+
+        <div class="letter">
+            <h1>My Quennnnnn</h1>
+            <p>
+                Well HAHA, yaon kana sa final part kauni panggaaaaaa and yaon akoo kaunii saimooo naka kupoooo hehehehe<br>
+                <br>
+                Gusto ko lang maaraman mo gaaaaaa na labbbbbbbbbbbbbbbb na labbbbbbbbbbbbbbbb takaaaa alwayssssss although daeeeeeeee kooo mannn mapa hilingg saimooo na marayyyyy gaaaaaaaa, just knowww na daeeeeeee ko arammmm angg gigibuhonn ko pagg mayooooo ka, bakaa maghibii pa akoooo HAHAHAHAHAHAHAHA
+                <br> <br>
+                Sorryyyyy na dinnnn poo panggaaaaaa taa sabiii kooo kangg nakaagii itataoo konaa unii saimooo peroooo daeeeeeeee koooo mannn natataooo, haaaaaaaaaa arammm koo gaaaa na sawangg sawaaa kanaaa sa sorryyyy kooo gaaaaa mayoooo namannn akong magiginiboo dyannnn ta kasalan koo mann ehhhh sanaaaaa makabawiii bawiii lamanggg akoooo 😭😭😭😭
+                <br> <br>
+                Well, advanceeee Merry Christmas andd happy new year my queennnnnnn 😉😉😉😉😉, 
+                <br>
+                panduwaaa tanaa uningg Christmas sakaa new year na mag kaibaa HAHAHAHA, 2 in foreverrr my queennnnnnn 😉😉😉😉😉😉😉😉, tandaaa kopaaa katooo supog supogg paa kitaaaa saa bawat saro HAHAHAHA and daeeeee koo mapugulannn naa paraaa hilingonn kaa taa cutetonnn kaa talagaaa anddd magayononn grabeeeeeee, sakaa dibaa kautong Christmas party sa grade 12 utong saralakan, magayononnn kaa talagaaa dumannn saa sulottt (anddd i knowww namannnn naa taa akoooo ang nag pilii ehhhh 😉😉😉) daeeeeeeeeeeeeeee patii akoo makaaa dulokk saimooo ninggg tultoll taa basaaa basaa akoo kautooo jusqqqqqq 😭😭😭😭😭😭, nabasaa kayaaa sa motorrr 😭😭😭😭😭😭, 
+                <br>
+                nasusupugonnn akongg mag dulokkkk 😭😭😭😭😭😭😭😭, perooo kangg tig apodd akoo kautoo ni Dwayne naa mag dumannn saimoooo nag dumannn namannn akooo taa youuu knowwwwww hehehehehehehe, nag sabi pa ngani kautoo si Dwayne na garooo nag pundo ang mundoo koo kagg nahilingg takaaa taa natulalaaa talagaaa akooo kautoooo, na speechless akooo taa sabraaaaa ass innn sobraaaaaa talagangggg gayonnnnn kanggg agommmmmm kooooooooooo 😍😍😍😍😍😍😍😍😍😍😍😍😍😍😍😍😍😍😍😍😍😍😍😍😍😍
+                <br>
+                literalll naa nag pundooo so mundooo koo katoooo ehhhh HAHAHAHAHA, malainnn aa nganii katooo angg pag matii mooo taaa daeeeeeeeeeeeeeee kaaa katooo nag kakann pag halii 😭😭😭😭😭😭, garoooooo kanaaa bagaaa matumbaa dumannnn 😭😭😭😭😭😭, marayyyyyyyyyyyy sanaaa taa may tindaaa paa si ate Judith 😭😭😭😭😭, andd pagg paulii taaa kautooo naa tigg hatoddd takaaaa sa terminall pa tinawagannn, kaa misssssssssssssss ayyyyy sooo paggg papaulii tanggg ibahann kitanggg duwaaaa tass mabakall munangg kakanonn andd malibottt kitaaaaa habanggg nag kakakannn anddd dateeeee natoooooo hehehehehehehe kaaa misssssssssssssss naa marayyyyyyyyyyyy anggg timesss natoooooo 😭😭😭😭😭😭😭😭😭😭😭😭😭, ngunyannnn bihiraaa naa langggggg kitaaa mag kahilingann panggaaaaaaa 😭😭😭😭😭, perooo no choiceee pa kayaaa ehhhhh kaipuhan magg adall munaaaaa 
+                <br> <br>
+                I justtt wanttt too lett youuu knowww my queennnnnnn naaa labbbbbbbbbbbbbbbbbbbbb naaa labbbbbbbbbbbbbbbbbbbbb naaa labbbbbbbbbbbbbbbbbbbbb naaa labbbbbbbbbbbbbbbbbbbbb naaa labbbbbbbbbbbbbbbbbbbbb naaa labbbbbbbbbbbbbbbbbbbbb naaa labbbbbbbbbbbbbbbbbbbbb takaaaa alwaysssss 😉😉😉😉😉😉😉😉😉😉😉😉😉😉😉😉 
+                <br> <br>
+                Don'ttt thinkkk naa babayaann takaaa taaa daeeeeeeeeeeeeeee koooo kayaaaaa annnnn, mahibii talagaaa akoooo pagg nawaraa ka sakoo 🥹🥹🥹🥹🥹🥹🥹, panggg habayy buhayyy na unji panggaaaaaaa 🥰🥰🥰🥰🥰🥰🥰, sabiiiii naa nganii kangg mgaa pinsann moo naaa destined kitaaanggg duwaaaaaa 😉😉😉😉😉😉😉😉😉, theyyy areee absolutely rightt my queennnnnnn 😉😉😉😉😉😉😉
+                <br> <br>
+                Anddd welll dunnnnnnn naa nag tataposss angg akinggg muntinggg surprisaaa saaa agommm koooo (well bakooo nangg surprisee taaa tigg paraa sabii konaaa 😭😭😭)
+                <br> <br>
+                Anddd pasensyaa naa dinn panggaaaaaaa (sorryyyy na namannn😭😭😭) kungggg medjooos simpleeee langgg hilingonn uninggg tig gibooo kooo hanggangg dyann palangg kayaaa angg knowledge koo 😭😭😭😭😭😭, don'ttt worryyyyy myy queennnnnnnnnnnn maa improveeee paa mann akooo anddd magayonnn dinnn angg mgaa aroggg koo kauniii naa tataohonnn saimooo promiseeeeeeee 🥰🥰🥰
+                <br><br>
+                I hopeee youuuu likeeee my simpleeee gift to youuu my queennnnnnn, it may nott look muchh butt it's filled with my loveee forr youuu my queennnn 😉😉😉😉😉😉 
+                <br><br>
+            
+            
+            
+            
+            
+            
+            </p>
+
+            <p>
+                ps.
+                <br>
+                I LOVEEEEEEEEEEEEEEEEEEEEEEE <br> YOUUUUUUUUUUUUUUUUUUUU <br> SOOOOOOOOOOOOOOOOOOOO VERYYYYYYYYYYYYYYYYYYYYYYYYY VERYYYYYYYYYYYYYYYYYYYYYYYYY VERYYYYYYYYYYYYYYYYYYYYYYYYY VERYYYYYYYYYYYYYYYYYYYYYYYYY VERYYYYYYYYYYYYYYYYYYYYYYYYY VERYYYYYYYYYYYYYYYYYYYYYYYYY VERYYYYYYYYYYYYYYYYYYYYYYYYY VERYYYYYYYYYYYYYYYYYYYYYYYYY VERYYYYYYYYYYYYYYYYYYYYYYYYY VERYYYYYYYYYYYYYYYYYYYYYYYYY VERYYYYYYYYYYYYYYYYYYYYYYYYY VERYYYYYYYYYYYYYYYYYYYYYYYYY VERYYYYYYYYYYYYYYYYYYYYYYYYY VERYYYYYYYYYYYYYYYYYYYYYYYYY VERYYYYYYYYYYYYYYYYYYYYYYYYY VERYYYYYYYYYYYYYYYYYYYYYYYYY VERYYYYYYYYYYYYYYYYYYYYYYYYY MUCHHHHHHHHHHHHHHHHH MY QUEENNNNNNN 😉😉😉
+            </p>
+            <div class="signature">
+                Forever yours,<br>
+                [Your Name]
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Simple JavaScript to handle the click
+        const container = document.getElementById('envelope-container');
+
+        container.addEventListener('click', () => {
+            // Toggle the 'open' class on the container
+            container.classList.toggle('open');
+        });
+    </script>
+
+</body>
+</html>
