@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A littlee gift from your husband</title>
+    <link rel="stylesheet" href="sample.css">
+    <style>
+        /* 1. Basic Page Styling */
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            background-image: url(bg.jpeg);
+            background-size: cover; 
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+
+        /* 2. Styling the Button that opens the window */
+        #openModalBtn {
+            padding: 15px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        /* 3. Styling the "Window" (Dialog) */
+        dialog {
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            text-align: center;
+            max-width: 400px;
+        }
+
+        /* This dims the background behind the window */
+        dialog::backdrop {
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        /* Image styling */
+        dialog img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        /* Button Container styling */
+        .button-container {
+            display: flex;
+            gap: 10px; /* Space between buttons */
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .btn-con { background-color: #28a745; color: white; }
+
+        
+
+    </style>
+</head>
+<body>
+
+    <!-- From Uiverse.io by marcelodolza --> 
+    <button id="openModalBtn" class="openModalBtn">
+  <div class="outline"></div>
+  <div class="state state--default">
+    <div class="icon">
+      <svg
+        width="1em"
+        height="1em"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g style="filter: url(#shadow)">
+          <path
+            d="M14.2199 21.63C13.0399 21.63 11.3699 20.8 10.0499 16.83L9.32988 14.67L7.16988 13.95C3.20988 12.63 2.37988 10.96 2.37988 9.78001C2.37988 8.61001 3.20988 6.93001 7.16988 5.60001L15.6599 2.77001C17.7799 2.06001 19.5499 2.27001 20.6399 3.35001C21.7299 4.43001 21.9399 6.21001 21.2299 8.33001L18.3999 16.82C17.0699 20.8 15.3999 21.63 14.2199 21.63ZM7.63988 7.03001C4.85988 7.96001 3.86988 9.06001 3.86988 9.78001C3.86988 10.5 4.85988 11.6 7.63988 12.52L10.1599 13.36C10.3799 13.43 10.5599 13.61 10.6299 13.83L11.4699 16.35C12.3899 19.13 13.4999 20.12 14.2199 20.12C14.9399 20.12 16.0399 19.13 16.9699 16.35L19.7999 7.86001C20.3099 6.32001 20.2199 5.06001 19.5699 4.41001C18.9199 3.76001 17.6599 3.68001 16.1299 4.19001L7.63988 7.03001Z"
+            fill="currentColor"
+          ></path>
+          <path
+            d="M10.11 14.4C9.92005 14.4 9.73005 14.33 9.58005 14.18C9.29005 13.89 9.29005 13.41 9.58005 13.12L13.16 9.53C13.45 9.24 13.93 9.24 14.22 9.53C14.51 9.82 14.51 10.3 14.22 10.59L10.64 14.18C10.5 14.33 10.3 14.4 10.11 14.4Z"
+            fill="currentColor"
+          ></path>
+        </g>
+        <defs>
+          <filter id="shadow">
+            <fedropshadow
+              dx="0"
+              dy="1"
+              stdDeviation="0.6"
+              flood-opacity="0.5"
+            ></fedropshadow>
+          </filter>
+        </defs>
+      </svg>
+    </div>
+    <p><span style="--i:0">C</span><span style="--i:1">l</span><span style="--i:2">i</span><span style="--i:3">c</span><span style="--i:4">k</span><span style="--i:5">&nbsp;</span><span style="--i:6">t</span><span style="--i:7">h</span><span style="--i:8">i</span><span style="--i:9">s</span><span style="--i:10">&nbsp;</span><span style="--i:11">m</span><span style="--i:12">y</span><span style="--i:13">&nbsp;</span><span style="--i:14">q</span><span style="--i:15">u</span><span style="--i:16">e</span><span style="--i:17">e</span><span style="--i:18">n</span></p>
+  </div>
+  <div class="state state--sent">
+    <div class="icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" height="1em" width="1em">
+        <g style="filter: url(#shadow)">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 6 4 4 6.5 4 8.24 4 10 5.1 11 6.5 12 5.1 13.76 4 15.5 4 18 4 20 6 20 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
+        </g>
+        <defs>
+          <filter id="shadow">
+            <fedropshadow dx="0" dy="1" stdDeviation="0.6" flood-opacity="0.5"></fedropshadow>
+          </filter>
+        </defs>
+      </svg>
+    </div>
+    <p>
+      <span style="--i:5">N</span>
+      <span style="--i:6">i</span>
+      <span style="--i:7">c</span>
+      <span style="--i:8">e</span>
+    </p>
+  </div>
+</button>
+
+
+    <dialog id="gifDialog">
+        <img src="gif1.gif" alt="Fun GIF">
+        
+        <h1>Happy Monthsary My Quennnnnnnnnnnn<br>😍😍😍😍😍</h1>
+        <p>Sorryy gaaa lateee koo nataoo unii saimoo😭😭😭😭</p>
+
+        <div class="button-container">
+            <button id="conbtn" class="btn btn-con">Click this my quennnnnn😉😉😉😉</button>
+        </div>
+
+    </dialog>
+
+    <dialog id="gifDialog1">
+        <img src="dudu waiting.gif" alt="dudu waiting" class="duduwaiting">
+        <h1>Quizzzzzzz 😉😉😉😉😉😉😉😉</h1>
+        <h2>What do you say when i tell you "I loveeeeee youuuuuuu my quennnnnn"?</h2>
+
+        <div class="btn1-container">
+          <button id="ily" class="ilybtn" title="hehehehehehe">I loveeeeee youuuuuuu toooooooo dadaaaaa</button>
+        </div>
+
+        <div class="btn1-container">
+          <button id="ty" class="tybtn">Thankkkk youuuuuuu</button>
+        </div>
+
+    </dialog>
+
+    <dialog id="gifDialog2">
+        <img src="kiss.gif" alt="dudukiss" class="dudukiss" >
+
+        <h2 class="d2text"> Hehehehehehehehehehehe i knowwwwwwwww youuuuuuu loveeeeee meeeeeeeee my quennnnnn😉😉😉😉</h2>
+        <a href="letter.html">
+        <button id="toletterbtn" class="tolet"> Click this my queeenn</button>
+        </a>
+      </dialog>
+
+    
+
+    
+    <script>
+        // 1. Select elements from the DOM
+        const modal = document.getElementById('gifDialog');
+        const openBtn = document.getElementById('openModalBtn');
+        const conbtn = document.getElementById('conbtn');
+        const gifDialog1 = document.getElementById('gifDialog1');
+        const gifDialog2 = document.getElementById('gifDialog2');
+
+        // 2. Event Listener to OPEN the modal
+        openBtn.addEventListener('click', () => {
+          if (modal) modal.showModal(); // .showModal() creates the backdrop automatically
+        });
+
+        // 4. Event Listener for "Yes" (close first modal, then open the next)
+        conbtn.addEventListener('click', () => {
+          if (modal) modal.close();
+          if (gifDialog1) gifDialog1.showModal();
+        });
+
+        // 5. When #ty is clicked, expand #ily to fill #gifDialog1 (toggle)
+        const ilyBtn = document.getElementById('ily');
+        const tyBtn = document.getElementById('ty');
+        if (tyBtn && ilyBtn && gifDialog1) {
+          let initialized = false;
+          const original = {};
+          let currentScale = 1;
+          let baseWidth = null;
+          let baseHeight = null;
+          let tyFirstClicked = false; // track first click to change text
+
+          function saveOriginalStyles() {
+            original.position = ilyBtn.style.position || '';
+            original.left = ilyBtn.style.left || '';
+            original.top = ilyBtn.style.top || '';
+            original.width = ilyBtn.style.width || '';
+            original.height = ilyBtn.style.height || '';
+            original.margin = ilyBtn.style.margin || '';
+            original.transform = ilyBtn.style.transform || '';
+          }
+
+          function restoreOriginalStyles() {
+            ilyBtn.classList.remove('expanded');
+            ilyBtn.style.left = original.left;
+            ilyBtn.style.top = original.top;
+            ilyBtn.style.width = original.width;
+            ilyBtn.style.height = original.height;
+            ilyBtn.style.position = original.position;
+            ilyBtn.style.margin = original.margin;
+            ilyBtn.style.transform = original.transform;
+            currentScale = 1;
+          }
+
+          tyBtn.addEventListener('click', () => {
+            if (!gifDialog1.open) return;
+
+            const dialogRect = gifDialog1.getBoundingClientRect();
+            let ilyRect = ilyBtn.getBoundingClientRect();
+
+            if (!initialized) {
+              // store base size (unscaled)
+              baseWidth = ilyRect.width;
+              baseHeight = ilyRect.height;
+              saveOriginalStyles();
+
+              // position ily centered in dialog
+              const left = (dialogRect.width - baseWidth) / 2;
+              const top = (dialogRect.height - baseHeight) / 2;
+
+              ilyBtn.style.position = 'absolute';
+              ilyBtn.style.left = left + 'px';
+              ilyBtn.style.top = top + 'px';
+              ilyBtn.style.margin = '0';
+              ilyBtn.classList.add('expanded');
+              ilyBtn.style.transform = 'scale(1)';
+              initialized = true;
+            }
+
+            // on first click change the ty button text
+            if (!tyFirstClicked) {
+              tyBtn.textContent = 'Sureeeeeeeeee??😉😉😉';
+              tyFirstClicked = true;
+            }
+
+            // compute maximum scale based on base size
+            const maxScale = Math.min(dialogRect.width / baseWidth, dialogRect.height / baseHeight);
+            if (currentScale >= maxScale - 0.01) {
+              // already at or near max — ensure fill
+              ilyBtn.style.transform = `scale(${maxScale})`;
+              currentScale = maxScale;
+              return;
+            }
+
+            // increase scale by 20% per click (or smaller if close to max)
+            const scaleStep = 1.2;
+            const newScale = Math.min(currentScale * scaleStep, maxScale);
+
+            ilyBtn.style.transform = `scale(${newScale})`;
+            currentScale = newScale;
+          });
+        }
+
+        // When #ily is clicked show gifDialog2
+        const ilyBtnDirect = document.getElementById('ily');
+        if (ilyBtnDirect && gifDialog2) {
+          ilyBtnDirect.addEventListener('click', () => {
+            gifDialog2.showModal();
+          });
+        }
+
+      
+    </script>
+
+</body>
+</html> 
