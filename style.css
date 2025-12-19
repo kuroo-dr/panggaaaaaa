@@ -1,0 +1,131 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background-image: url('bg.jpeg');
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+.rectangle {
+            /* Set dimensions for your rectangle */
+            width: 500px;
+            
+            background-color: whitesmoke;
+            /* Ensure the image covers the entire rectangle */
+            background-size: cover;
+            
+            /* Center the image within the rectangle */
+            background-position: center;
+            
+            /* Add some styling like rounded corners and a shadow */
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+
+            /* Optional: Center the rectangle on the page */
+            margin-top: 300px;
+            margin-left: calc(50% - 250px); /* Center horizontally based on width */
+
+            display: flex;
+            height: auto;
+            align-items: center; /*vertically*/
+            justify-content: center; /*horizontally*/
+
+}
+
+.hp {
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px 4px #000;
+}
+
+.gifpic img { transition: opacity 220ms ease; }
+
+.gifpic {
+    text-align: center;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.gif1-container {
+  position: relative;
+  display: inline-block; /* Keeps container same size as the GIF */
+  cursor: pointer;       /* Shows a hand cursor */
+}
+
+.gif1_hover-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 0); /* Centers text perfectly */
+  
+  color: white;
+  background-color: rgba(0, 0, 0, 0.8); /* Black background with 80% opacity */
+  padding: 8px 15px;
+  border-radius: 4px;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  
+  /* Animation settings */
+  opacity: 0;            /* Completely invisible normally */
+  transition: opacity 0.3s ease; /* Smooth fade in */
+}
+
+/* 4. The Interaction - Show text when mouse is over the container */
+.gif1:hover .gif1_hover-text {
+  opacity: 1;
+}
+
+/* Styles for the rectangle (popup) */
+#popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 200px;
+    background-color: white;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    text-align: center;
+    }
+
+/* Styles for the trigger button */
+#trigger-btn {
+padding: 10px 20px;
+background-color: #007bff;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+}
+
+#trigger-btn:hover {
+background-color: #0056b3;
+}
+
+/* Styles for the close button inside the popup */
+#close-btn {
+    margin-top: 10px;
+    padding: 5px 15px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#close-btn:hover {
+    background-color: #c82333;
+}
+
